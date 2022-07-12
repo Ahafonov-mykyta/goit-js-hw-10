@@ -11,10 +11,40 @@ body {
   color: #212121;
   line-height: 1.5;
 }
+ul{
+  list-style: none;
+
+}
 
 #search-box {
   font: inherit;
   padding: 8px;
   max-width: 320px;
   margin-bottom: 16px;
+}
+.country-list__item{
+  display: flex;
+  margin-bottom: 10px;
+
+}
+.flag {
+  width: 30px;
+  
+}
+.country__name{
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.country__info{
+  margin: 0px;
+}
+
+.country__info > li {
+  font-size: 23;
+}
+.country__info > li > h3 {
+  margin: 0;
+  display: inline-block;
+  font-size: 23;
 }
