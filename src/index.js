@@ -1,22 +1,31 @@
 import './css/styles.css';
 import debounce from 'lodash.debounce';
 import Notiflix from 'notiflix';
-import {fetchCountries, refs} from "./fetchCountries"
+import { fetchCountries } from "./fetchCountries"
 
 const DEBOUNCE_DELAY = 300;
 
-
+const refs = {
+    input: document.querySelector("#search-box"),
+    list:document.querySelector(".country-list"),
+    div:document.querySelector(".country-info"),
+}
 
 let name = "";
 refs.input.addEventListener("input", debounce((readInputValue), DEBOUNCE_DELAY))
 
 
 function readInputValue(){
-    // if(name === ""){return}
     name = refs.input.value.trim() ;
-    fetchCountries(name, createMarkup);
+    fetchCountries(name).then(data => createMarkup (data)).catch(error =>failturePromise(error))
 }
 
+function failturePromise(error){    
+    refs.list.innerHTML="";
+    refs.div.innerHTML="";
+    Notiflix.Notify.failure( "Oops, there is no country with that name");
+    console.log(error)
+}
 
 function createMarkup (data) {   
         refs.list.innerHTML="";
