@@ -4,7 +4,7 @@ import Notiflix from 'notiflix';
 import {fetchCountries, refs} from "./fetchCountries"
 
 const DEBOUNCE_DELAY = 300;
-Notiflix.Notify.init({position:'right-bottom'})
+
 
 
 let name = "";
